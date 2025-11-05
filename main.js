@@ -39,7 +39,13 @@ async function getDashboardData(query) {
   //do tutto in pasto a Promise.all e con il destructure non ho bisogno neanche di creare la variabile 
   const [destinations , weathers , airports] = await Promise.all(promises)
 
-
+  return{
+    city: destinations[0].name,
+    country: destinations[0].country,
+    temperature: weathers[0].temperature,
+    weather:weathers[0].weather_description,
+    airport:airports[0].name
+  }
   
 }  
 
