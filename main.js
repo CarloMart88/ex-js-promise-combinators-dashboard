@@ -51,10 +51,7 @@ async function getDashboardData(query) {
 
 
 
-getDashboardData('london')
-
-
-/* getDashboardData('london')
+ getDashboardData('london')
     .then(data => {
         console.log('Dasboard data:', data);
         console.log(
@@ -63,4 +60,4 @@ getDashboardData('london')
             `The main airport is ${data.airport}.\n`
           );
         })
-        .catch(error => console.error(error));*/
+        .catch(error => console.error(error));
