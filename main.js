@@ -13,10 +13,21 @@
 //iniziamo salvando l'url base dei nostri endpoint in una costante 
 const baseUrl = `http://localhost:3333`;
 
-async function getDashboardData(query) {
-  
-}
+const urls = [
+  `/destinations?search=${query}`,
+  `/weathers?search=${query}`,
+  `/airports?search=${query}`]
 
-(async () => {
 
-})()
+
+
+/* getDashboardData('london')
+    .then(data => {
+        console.log('Dasboard data:', data);
+        console.log(
+            `${data.city} is in ${data.country}.\n` +
+            `Today there are ${data.temperature} degrees and the weather is ${data.weather}.\n`+
+            `The main airport is ${data.airport}.\n`
+          );
+        })
+        .catch(error => console.error(error));*/
