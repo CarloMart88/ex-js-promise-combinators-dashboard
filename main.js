@@ -13,6 +13,15 @@
 //iniziamo salvando l'url base dei nostri endpoint in una costante 
 // `http://localhost:3333`;
 
+//adesso per semplificare il codice creo la funzione di supporto fetchJson
+
+async function fetchJson(url) {
+  const response = await fetch(url)
+  const result = await response.json()
+  return result
+  
+}
+
 
 async function getDashboardData(query) {
   console.log(`Caricando la dashboard per la query ${query}`)
