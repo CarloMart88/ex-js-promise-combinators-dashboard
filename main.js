@@ -11,14 +11,20 @@
 */ 
 
 //iniziamo salvando l'url base dei nostri endpoint in una costante 
-const baseUrl = `http://localhost:3333`;
-
-const urls = [
-  `/destinations?search=${query}`,
-  `/weathers?search=${query}`,
-  `/airports?search=${query}`]
+// `http://localhost:3333`;
 
 
+async function getDashboardData(query) {
+  console.log(`Caricando la dashboard per la query ${query}`)
+  //testo la chiamata 
+  const response = await fetch(`http://localhost:3333/destinations?search=${query}`)
+  const destinations = response.json()
+  console.log(destinations)
+}  
+
+
+
+getDashboardData('london')
 
 
 /* getDashboardData('london')
