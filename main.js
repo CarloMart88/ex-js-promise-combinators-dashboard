@@ -24,9 +24,10 @@ async function fetchJson(url) {
 
 
 async function getDashboardData(query) {
+  //se avessimo voluto verificare la presenza di eventuali errori nell'esecuzione delle chiamate avremmo potuto usare un try wrappando tutto quanto all'interno delle graffe 
 
   console.log(`Caricando la dashboard per la query ${query}`)
-
+  try{
   //adesso con la funzione di supporto preparo le varie fetch
   const destinationPromise = fetchJson(`http://localhost:3333/destinations?search=${query}`)
 
@@ -46,10 +47,13 @@ async function getDashboardData(query) {
     weather:weathers[0].weather_description,
     airport:airports[0].name
   }
-  
+
+  }catch(error){
+    throw new Error(`Errore nell'esecuzione della chiamata ${error}`)
+  }
 }  
 
-
+//ora posso testare finalmente il tutto con la nostra funzione getDashboardData!
 
  getDashboardData('london')
     .then(data => {
