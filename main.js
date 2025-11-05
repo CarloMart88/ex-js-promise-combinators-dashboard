@@ -25,10 +25,16 @@ async function fetchJson(url) {
 
 async function getDashboardData(query) {
   console.log(`Caricando la dashboard per la query ${query}`)
-  //testo la chiamata 
-  const response = await fetch(`http://localhost:3333/destinations?search=${query}`)
-  const destinations = response.json()
-  console.log(destinations)
+  //adesso con la funzione di supporto preparo le varie fetch
+  const destinationPromise = fetchJson(`http://localhost:3333/destinations?search=${query}`)
+
+  const weatherPromise = fetchJson(`http://localhost:3333/weathers?search=${query}`)
+
+  const airportsPromise = fetchJson(`http://localhost:3333/airports?search=${query}`)
+
+
+
+  
 }  
 
 
