@@ -24,7 +24,9 @@ async function fetchJson(url) {
 
 
 async function getDashboardData(query) {
+
   console.log(`Caricando la dashboard per la query ${query}`)
+
   //adesso con la funzione di supporto preparo le varie fetch
   const destinationPromise = fetchJson(`http://localhost:3333/destinations?search=${query}`)
 
@@ -32,6 +34,10 @@ async function getDashboardData(query) {
 
   const airportsPromise = fetchJson(`http://localhost:3333/airports?search=${query}`)
 
+  //creo l'array promises con tutte le promise create
+  const promises = [destinationPromise , weatherPromise , airportsPromise ]
+  //do tutto in pasto a Promise.all e con il destructure non ho bisogno neanche di creare la variabile 
+  const [destinations , weathers , airports] = await Promise.all(promises)
 
 
   
