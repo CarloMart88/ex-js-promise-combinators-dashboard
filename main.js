@@ -12,3 +12,11 @@
 
 //iniziamo salvando l'url base dei nostri endpoint in una costante 
 const baseUrl = `http://localhost:3333`;
+
+async function getDashboardData(query) {
+  
+}
+
+(async () => {
+
+})()
